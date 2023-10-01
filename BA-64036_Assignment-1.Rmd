@@ -1,0 +1,85 @@
+---
+title: "YESWANTH SIRIPURAPU R Notebook"
+output:
+  pdf_document: default
+  html_notebook: default
+  word_document: default
+---
+
+#Install the ISLR PACKAGE
+```{r}
+library("ISLR")
+```
+
+
+# With this line of code, a summary of the "Carseats" dataset is produced. 
+#The summary() method offers a number of statistics and details about the 
+#variables in the dataset. For numerical variables, it will show measurements
+#like mean, median, minimum, maximum, and quartiles; for categorical variables,
+#it will show counts. Understanding the properties of the dataset in general 
+#is made easier by reading this summary.The number of rows in the "Carseats" 
+#dataset are determined by the statement nrow(Carseats). The entire number of 
+#observations or data points in the dataset is returned, in other words.
+
+```{r}
+
+summary(Carseats)
+nrow(Carseats)
+```
+# The greatest value in the "Advertising" column of the "Carseats" dataset will
+#be returned by this line. It will specifically provide you the observation in 
+#the dataset with the highest average advertising expenditure.
+
+```{r}
+max(Carseats $ Advertising)
+
+```
+```{r}
+IQR(Carseats $ Price)
+```
+ 
+
+#The code plots the sales of carseats over time, and the price.
+#The main is "sales v/s Price".
+#The x-axis shows the number of cars seats sold in a given year.
+#The y-axis shows how much each car seat cost at that time.
+#The code creates a scatter plot of the data from Carseats.
+#The code also includes a title, main, and x-axis label.
+
+
+```{r}
+plot(Carseats$`Sales`,Carseats$`Price`,
+     main = "sales v/s Price",
+     xlab = "sales",
+     ylab = "Price",
+     col= "red")
+
+
+```
+#The code starts by creating a list of cars that are available for sale.
+#The code then creates a new variable called "Carseats" which is the name of the
+#data set and contains all the information about each car.
+#Next, it creates another new variable called "Sales" which is an array
+#containing all the sales prices for each car.
+# Finally, it calculates the correlation between Sales and Price using cor()
+#function in R programming language.
+# The first if statement checks to see if there is a positive correlation between
+#Sales and Price (correlation > 0).
+# If there was no correlation greater than zero, then this would mean that there
+#No linear relationship between these two variables (no linear relationship)
+#The code will print "The correlation is close to zero (no linear relationship).
+#If the correlation between Carseats$Sales and Carseats$Price is less than 0.5.
+
+
+```{r}
+correlation <- cor(Carseats$Sales, Carseats$Price)
+correlation
+if (correlation > 0) {
+  cat("The correlation is positive.\n")
+} else if (correlation < 0) {
+  cat("The correlation is negative.\n")
+} else {
+  cat("The correlation is close to zero (no linear relationship).\n")
+}
+  
+```
